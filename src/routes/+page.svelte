@@ -3,3 +3,4 @@
 
 
 <a href="/register">Reg</a>
+<a href="/login">Log</a>

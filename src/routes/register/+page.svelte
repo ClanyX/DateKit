@@ -24,7 +24,7 @@
         if(res.ok){
             successMessage = data.message;
             errorMessage = '';
-            //window.location.href = '/login';
+            window.location.href = '/login';
         } else {
             successMessage = '';
             errorMessage = data.error;
