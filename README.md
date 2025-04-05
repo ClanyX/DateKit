@@ -1,38 +1,32 @@
-# sv
+## 🔧 O projektu
 
-Everything you need to build a Svelte project, powered by [`sv`](https://github.com/sveltejs/cli).
+Tato aplikace je vlastní alternativou ke klasickému Tinderu – postavená s důrazem na jednoduchost, přehlednost a moderní technologie.
 
-## Creating a project
+---
 
-If you're seeing this, you've probably already done this step. Congrats!
+### 🧠 Technologie v pozadí
 
-```bash
-# create a new project in the current directory
-npx sv create
+- **SvelteKit** – moderní framework pro rychlý vývoj webových aplikací s vynikajícím výkonem a skvělým DX.
+- **TypeScript** – přidává typovou bezpečnost a lepší čitelnost kódu.
+- **Prisma ORM** – typově bezpečný ORM pro práci s databází (aktuálně SQLite nebo PostgreSQL).
+- **SQLite** – jednoduchá a rychlá databáze vhodná pro vývoj a menší produkční nasazení.
+- **Tailwind CSS** – utility-first přístup ke stylování pro čistý a flexibilní design.
+- **Session-based autentizace** – bezpečná správa uživatelských relací bez externích providerů.
+- **bcrypt** – hashování hesel pro bezpečné uložení.
 
-# create a new project in my-app
-npx sv create my-app
-```
+---
 
-## Developing
+### ⚙️ Funkce
 
-Once you've created a project and installed dependencies with `npm install` (or `pnpm install` or `yarn`), start a development server:
+- ✅ Registrace a přihlašování uživatelů  
+- ✅ Swipeování profilů (match systém)  
+- ✅ Ukládání vzájemných "matchů"  
+- ✅ Real-time chat mezi spárovanými uživateli  
+- ✅ Admin rozhraní pro správu uživatelů *(volitelné)*
 
-```bash
-npm run dev
+---
 
-# or start the server and open the app in a new browser tab
-npm run dev -- --open
-```
+### 🎯 Cíl projektu
 
-## Building
-
-To create a production version of your app:
-
-```bash
-npm run build
-```
-
-You can preview the production build with `npm run preview`.
-
-> To deploy your app, you may need to install an [adapter](https://svelte.dev/docs/kit/adapters) for your target environment.
+Vyzkoušet si vývoj moderní fullstack webové aplikace od backendu po frontend s důrazem na bezpečnost, čistý kód a uživatelskou přívětivost.  
+Projekt slouží jako technická ukázka s potenciálem dalšího rozšíření (např. o mobilní verzi, notifikace nebo integraci AI).
