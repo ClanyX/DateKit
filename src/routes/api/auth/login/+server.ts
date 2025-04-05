@@ -1,5 +1,6 @@
 import { json,type RequestEvent } from '@sveltejs/kit';
 import  bcrypt from 'bcrypt';
+import { prisma } from '$lib/server/prisma';
 
 export async function POST({ request}: RequestEvent) {
     const { name, password} = await request.json() as {

@@ -36,7 +36,7 @@
     <div class="max-w-md w-full bg-white rounded-xl shadow-lg p-8">
       <h2 class="text-2xl font-bold text-gray-900 mb-6 text-center">Register</h2>
       
-      <form class="space-y-4" on:submit|preventDefault={register}>
+      <form class="space-y-4" on:submit|preventDefault={register} method="POST">
         <div>
           <label for="name" class="block text-sm font-medium text-gray-700 mb-1">Name</label>
           <input 

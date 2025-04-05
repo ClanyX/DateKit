@@ -25,7 +25,7 @@
     <div class="max-w-md w-full bg-white rounded-xl shadow-lg p-8">
       <h2 class="text-2xl font-bold text-gray-900 mb-6 text-center">Login</h2>
       
-      <form class="space-y-4" on:submit|preventDefault={login}>
+      <form class="space-y-4" on:submit|preventDefault={login} method="POST">
         <div>
           <label for="name" class="block text-sm font-medium text-gray-700 mb-1">Username</label>
           <input 
