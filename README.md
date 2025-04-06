@@ -22,7 +22,7 @@ Tato aplikace je vlastní alternativou ke klasickému Tinderu – postavená s d
 - ✅ Swipeování profilů (match systém)  
 - ✅ Ukládání vzájemných "matchů"  
 - ✅ Real-time chat mezi spárovanými uživateli  
-- ✅ Admin rozhraní pro správu uživatelů *(volitelné)*
+- ✅ Admin rozhraní pro správu uživatelů
 
 ---
 
