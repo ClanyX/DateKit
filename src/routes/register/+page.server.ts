@@ -3,6 +3,12 @@ import bcrypt from 'bcrypt';
 import { prisma } from "$lib/server/prisma";
 import type { RequestEvent } from './$types';
 
+export const load = async ({ locals }) => {
+    if(locals.user) {
+        redirect(302, '/');
+    }
+};
+
 const register = async ({ request }: RequestEvent) => {
     const data = await request.formData();
     const name = data.get('name') as string;

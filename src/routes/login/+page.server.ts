@@ -2,7 +2,12 @@ import { fail, redirect } from '@sveltejs/kit';
 import bcrypt from 'bcrypt';
 import { prisma } from "$lib/server/prisma";
 import type { RequestEvent } from './$types';
-import path from 'path';
+
+export const load = async ({ locals }) => {
+    if(locals.user) {
+        redirect(302, '/');
+    }
+};
 
 const login = async ({ request, cookies }: RequestEvent) => {
     const data = await request.formData();

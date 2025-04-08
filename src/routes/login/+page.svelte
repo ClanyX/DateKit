@@ -1,4 +1,6 @@
 <script lang="ts">
+  import { applyAction, enhance } from "$app/forms";
+  import { invalidateAll } from "$app/navigation";
   let { form } = $props();
 </script>
 
@@ -6,7 +8,12 @@
   <div class="max-w-md w-full bg-white rounded-xl shadow-lg p-8">
     <h2 class="text-2xl font-bold text-gray-900 mb-6 text-center">Login</h2>
 
-    <form class="space-y-4" action="?/login" method="POST">
+    <form class="space-y-4" action="?/login" method="POST" use:enhance={() => {
+      return async ({ result }) => {
+        invalidateAll();
+        await applyAction(result);
+      };
+    }}>
       <div>
         <label for="name" class="block text-sm font-medium text-gray-700 mb-1"
           >Username</label

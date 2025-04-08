@@ -1,12 +1,13 @@
 <script lang="ts">
-    let { form } = $props();
+  import { enhance } from "$app/forms";
+  let { form } = $props();
 </script>
 
 <div class="min-h-screen bg-gray-100 flex items-center justify-center p-4">
     <div class="max-w-md w-full bg-white rounded-xl shadow-lg p-8">
       <h2 class="text-2xl font-bold text-gray-900 mb-6 text-center">Register</h2>
       
-      <form class="space-y-4" action="?/register" method="POST">
+      <form class="space-y-4" action="?/register" method="POST" use:enhance>
         <div>
           <label for="name" class="block text-sm font-medium text-gray-700 mb-1">Name</label>
           <input 
