@@ -2,8 +2,9 @@ import { fail, redirect } from '@sveltejs/kit';
 import bcrypt from 'bcrypt';
 import { prisma } from "$lib/server/prisma";
 import type { RequestEvent } from './$types';
+import { Sex } from '@prisma/client';
 
-export const load = async ({ locals }) => {
+export const load = async ({ locals }: { locals: App.Locals }) => {
     if(locals.user) {
         redirect(302, '/');
     }
@@ -13,6 +14,7 @@ const register = async ({ request }: RequestEvent) => {
     const data = await request.formData();
     const name = data.get('name') as string;
     const age = data.get('age') as string;
+    const gender = data.get('gender') as string;
     const password = data.get('password') as string;
     const password1 = data.get('password1') as string;
 
@@ -34,12 +36,16 @@ const register = async ({ request }: RequestEvent) => {
 
     const hashedPassword = await bcrypt.hash(password, 10);
 
+    const sex = gender as Sex;
+
     try {
         await prisma.user.create({
             data: {
                 name,
                 password: hashedPassword,
-                age: Number(age)
+                age: Number(age),
+                userToken: crypto.randomUUID(),
+                sex
             }
         });
     } catch (error) {

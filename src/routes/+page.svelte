@@ -88,8 +88,8 @@
                     role="button"
                     class="group relative inline-flex items-center justify-center text-base rounded-xl bg-indigo-600 px-8 py-3 font-semibold text-white transition-all duration-200 hover:bg-indigo-800 hover:shadow-lg hover:-translate-y-0.5 hover:shadow-gray-600/30"
                     title="payment"
-                    href="/about"
-                    >About the project<svg
+                    href="/main"
+                    >Get started<svg
                         aria-hidden="true"
                         viewBox="0 0 10 10"
                         height="10"

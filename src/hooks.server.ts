@@ -7,7 +7,7 @@ export const handle: Handle = async ({ event, resolve }) => {
         return await resolve(event);
     }
     const user = await prisma.user.findUnique({
-        where: { id: Number(session) },
+        where: { userToken: session },
         select: { name: true, age: true, sex: true }
     });
 

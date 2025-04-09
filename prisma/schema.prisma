@@ -14,14 +14,18 @@ datasource db {
 }
 
 model User {
-  id       Int    @id @default(autoincrement())
-  name     String @unique
-  password String
-  age      Int
-  sex      Sex    @default(MALE)
+  id        Int    @id @default(autoincrement())
+  name      String @unique
+  password  String
+  userToken String @unique
+  age       Int
+  sex       Sex    @default(other)
+
+  createdAt DateTime @default(now())
 }
 
 enum Sex {
-  MALE
-  FEMALE
+  male
+  female
+  other
 }
