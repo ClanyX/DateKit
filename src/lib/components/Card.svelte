@@ -1,5 +1,7 @@
 <script lang="ts">
     let { user } = $props();
+    import women from "$lib/assets/women.png"
+    import man from "$lib/assets/tinder_logo.png"
 </script>
 
 <div
@@ -33,8 +35,8 @@
     <p class="text-black font-semibold text-xs font-serif">Best</p>
     <p class="font-bold text-xl tracking-wider text-gray-500">{user.name}</p>
   </div>
-  <div class="img w-[180px] aspect-square bg-gray-100 z-40 rounded-md">
-    
+  <div class="img w-[256px] aspect-square bg-gray-100 z-40 rounded-md">
+    <img src="{user.sex === 'male' ? man : women}" alt="profile_photo">
   </div>
   <div
     class="btm-_container z-40 flex flex-row justify-between items-end gap-10"

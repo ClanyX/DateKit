@@ -1,7 +1,7 @@
 <script lang="ts">
     import '../app.css';
     import { page } from '$app/stores';
-    import logo from '../lib/assets/tinder_logo.png';
+    import logo from '$lib/assets/tinder_logo.png';
     let isMenuOpen = false;
 
     function toggleMenu() {
