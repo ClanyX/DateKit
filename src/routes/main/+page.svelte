@@ -4,6 +4,7 @@
 
     const localUser = $page.data.user || null;
 
+
     let name = "Product Name";
     let age = 23;
     let sex = "male";
@@ -11,7 +12,7 @@
 
 <div class="min-h-screen bg-gray-100 flex items-center justify-center">
     <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:mt-0 mt-20">
-        <Card user={localUser} />
-        <Card user={{ name, age, sex }} />
+        <Card user={{ name: localUser.name, age: localUser.age, sex: localUser.sex }} title="Your profile" />
+        <Card user={{ name, age, sex }} title="Comparison profile" />
     </div>
 </div>

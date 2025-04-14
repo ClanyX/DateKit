@@ -1,7 +1,8 @@
 <script lang="ts">
-    let { user } = $props();
-    import women from "$lib/assets/women.png"
-    import man from "$lib/assets/tinder_logo.png"
+  let { user, title } = $props();
+  import female from "$lib/assets/female.png";
+  import male from "$lib/assets/male.png";
+  import other from "$lib/assets/other.png";
 </script>
 
 <div
@@ -32,11 +33,14 @@
     class="absolute rounded-full bg-gray-500 z-20 left-1/2 top-[44%] h-[110%] w-[110%] -translate-x-1/2 group-hover:top-[58%] transition-all duration-300"
   ></div>
   <div class="para uppercase text-center leading-none z-40">
-    <p class="text-black font-semibold text-xs font-serif">Best</p>
+    <p class="text-black font-semibold text-xs font-serif">{title}</p>
     <p class="font-bold text-xl tracking-wider text-gray-500">{user.name}</p>
   </div>
   <div class="img w-[256px] aspect-square bg-gray-100 z-40 rounded-md">
-    <img src="{user.sex === 'male' ? man : women}" alt="profile_photo">
+    <img
+      src={user.sex === "male" ? male : user.sex === "female" ? female : other}
+      alt="profile_photo"
+    />
   </div>
   <div
     class="btm-_container z-40 flex flex-row justify-between items-end gap-10"
@@ -45,20 +49,24 @@
       <div class="inline-flex gap-3 items-center justify-center">
         <div class="p-1 bg-white flex items-center justify-center rounded-full">
           <svg
-            stroke-linejoin="round"
-            stroke-linecap="round"
-            stroke-width="1"
+            class="w-4 h-4 text-gray-800"
+            aria-hidden="true"
+            xmlns="http://www.w3.org/2000/svg"
+            width="24"
+            height="24"
             fill="none"
             viewBox="0 0 24 24"
-            class="fill-gray-800 h-3 w-3 stroke-none"
-            xmlns="http://www.w3.org/2000/svg"
           >
             <path
-              d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"
-            ></path>
+              stroke="currentColor"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M12 8v4l3 3m6-3a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z"
+            />
           </svg>
         </div>
-        <p class="font-semibold text-xs text-white">{user.age}</p>
+        <p class="font-semibold text-xs text-white">Age: {user.age}</p>
       </div>
       <div class="flex flex-row gap-2">
         <div class="inline-flex gap-3 items-center justify-center">
@@ -66,18 +74,21 @@
             class="p-1 bg-white flex items-center justify-center rounded-full"
           >
             <svg
-              stroke-linejoin="round"
-              stroke-linecap="round"
-              stroke-width="1"
+              class="w-4 h-4 text-gray-800"
+              aria-hidden="true"
+              xmlns="http://www.w3.org/2000/svg"
+              width="24"
+              height="24"
               fill="none"
               viewBox="0 0 24 24"
-              class="fill-gray-800 h-3 w-3 stroke-white"
-              xmlns="http://www.w3.org/2000/svg"
             >
               <path
-                d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"
-              ></path>
-              <polyline points="22,6 12,13 2,6"></polyline>
+                stroke="currentColor"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M12 8v4l3 3m6-3a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z"
+              />
             </svg>
           </div>
           <p class="font-semibold text-xs text-white">email@gmail.com</p>
