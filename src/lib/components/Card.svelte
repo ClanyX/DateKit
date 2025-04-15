@@ -5,19 +5,27 @@
   import other from "$lib/assets/other.png";
   import { onMount } from "svelte";
 
+
   if (!local) {
     onMount(() => {
       swapUser();
     });
   }
 
-  async function promoteUser() {}
+  async function promoteUser() {
+    await fetch("/api/promote", {
+      method: "POST",
+      body: JSON.stringify({ user }),
+      headers: { "Content-Type": "application/json" },
+    });
+  }
 
   async function swapUser() {
     const res = await fetch("/api/swap", { method: "POST" });
     const data = await res.json();
     if(user.name !== data.randomUser.name) {
       user = data.randomUser;
+      
     } else {
       swapUser();
     }
@@ -110,7 +118,7 @@
               />
             </svg>
           </div>
-          <p class="font-semibold text-xs text-white">Points: {user.points}</p>
+          <p class="font-semibold text-xs text-white">Point: {user.points}</p>
         </div>
       </div>
     </div>

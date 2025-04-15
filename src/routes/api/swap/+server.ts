@@ -1,5 +1,4 @@
 import { json } from "@sveltejs/kit";
-import { prisma } from "$lib/server/prisma";
 
 export async function POST({ locals }: { locals: App.Locals & { user: { name: string } } }) {
     const user = await prisma.user.findMany({
