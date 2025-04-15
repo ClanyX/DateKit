@@ -12,7 +12,7 @@
 
 <div class="min-h-screen bg-gray-100 flex items-center justify-center">
     <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:mt-0 mt-20">
-        <Card user={{ name: localUser.name, age: localUser.age, sex: localUser.sex }} title="Your profile" />
-        <Card user={{ name, age, sex }} title="Comparison profile" />
+        <Card user={{ name: localUser.name, age: localUser.age, sex: localUser.sex, points: localUser.points }} title="Your profile" local={false} />
+        <Card user={{ name, age, sex }} title="Comparison profile" local={true} />
     </div>
 </div>

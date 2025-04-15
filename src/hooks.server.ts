@@ -8,14 +8,15 @@ export const handle: Handle = async ({ event, resolve }) => {
     }
     const user = await prisma.user.findUnique({
         where: { userToken: session },
-        select: { name: true, age: true, sex: true }
+        select: { name: true, age: true, sex: true, points: true }
     });
 
     if(user){
         event.locals.user = {
             name: user.name,
             age: user.age,
-            sex: user.sex
+            sex: user.sex,
+            points: user.points
         };
     }
 

@@ -25,7 +25,7 @@
             >
                 <img src={logo} alt="logo" />
             </div>
-            <h1 class="absolute bottom-15 text-2xl font-bold">Custom Tinder</h1>
+            <h1 class="absolute bottom-15 text-2xl font-bold">DateKit</h1>
         </div>
 
         <div class="bg-white shadow-md rounded-lg p-6 text-center">

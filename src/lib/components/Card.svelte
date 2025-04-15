@@ -1,5 +1,5 @@
 <script lang="ts">
-  let { user, title } = $props();
+  let { user, title, local } = $props();
   import female from "$lib/assets/female.png";
   import male from "$lib/assets/male.png";
   import other from "$lib/assets/other.png";
@@ -87,20 +87,22 @@
                 stroke-linecap="round"
                 stroke-linejoin="round"
                 stroke-width="2"
-                d="M12 8v4l3 3m6-3a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z"
+                d="M12 6v13m0-13 4 4m-4-4-4 4"
               />
             </svg>
           </div>
-          <p class="font-semibold text-xs text-white">email@gmail.com</p>
+          <p class="font-semibold text-xs text-white">Points: {user.points}</p>
         </div>
       </div>
     </div>
+    {#if local}
     <div class="btn">
       <button
         class="uppercase font-semibold text-xs px-2 whitespace-nowrap py-1 rounded-full bg-white text-gray-800"
       >
-        ORDER NOW
+        Promote
       </button>
     </div>
+    {/if}
   </div>
 </div>

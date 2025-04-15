@@ -20,6 +20,7 @@ model User {
   userToken String @unique
   age       Int
   sex       Sex    @default(other)
+  points    Int    @default(0)
 
   createdAt DateTime @default(now())
 }
