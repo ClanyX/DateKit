@@ -3,6 +3,25 @@
   import female from "$lib/assets/female.png";
   import male from "$lib/assets/male.png";
   import other from "$lib/assets/other.png";
+  import { onMount } from "svelte";
+
+  if (!local) {
+    onMount(() => {
+      swapUser();
+    });
+  }
+
+  async function promoteUser() {}
+
+  async function swapUser() {
+    const res = await fetch("/api/swap", { method: "POST" });
+    const data = await res.json();
+    if(user.name !== data.randomUser.name) {
+      user = data.randomUser;
+    } else {
+      swapUser();
+    }
+  }
 </script>
 
 <div
@@ -95,14 +114,21 @@
         </div>
       </div>
     </div>
-    {#if local}
-    <div class="btn">
-      <button
-        class="uppercase font-semibold text-xs px-2 whitespace-nowrap py-1 rounded-full bg-white text-gray-800"
-      >
-        Promote
-      </button>
-    </div>
+    {#if !local}
+      <div class="btn">
+        <button
+          class="uppercase font-semibold text-xs px-2 whitespace-nowrap py-1 rounded-full bg-white text-gray-800"
+          onclick={promoteUser}
+        >
+          Promote
+        </button>
+        <button
+          class="uppercase font-semibold text-xs px-2 whitespace-nowrap py-1 rounded-full bg-white text-gray-800"
+          onclick={swapUser}
+        >
+          Swap
+        </button>
+      </div>
     {/if}
   </div>
 </div>
