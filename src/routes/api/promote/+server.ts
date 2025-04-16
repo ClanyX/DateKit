@@ -10,5 +10,5 @@ export async function POST({ request }: { request: Request }) {
             points: user.points + 1
         }
     });
-    return json({ status: 204});
+    return json({ success: true });
 };

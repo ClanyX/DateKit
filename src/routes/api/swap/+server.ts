@@ -7,7 +7,7 @@ export async function POST({ locals }: { locals: App.Locals & { user: { name: st
                 not: locals.user.name
             }
         },
-        select: { name: true, age: true, sex: true, points: true}
+        select: { name: true, age: true, sex: true, points: true }
     });
 
     const randomUser = user[Math.floor(Math.random() * user.length)];
