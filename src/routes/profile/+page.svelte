@@ -14,6 +14,7 @@
 <div class="min-h-screen bg-gray-100 flex items-center justify-center">
     <div class="bg-white shadow-md rounded-lg p-6 max-w-sm w-full">
         {#if isEditing}
+            <!-- Can't connect to the form from backend (just try to send the data) -->
             <form method="POST">
                 <h1 class="text-2xl font-bold mb-4">User Profile</h1>
                 <p class="text-gray-700">

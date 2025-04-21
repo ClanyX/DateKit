@@ -110,6 +110,7 @@
           >
         </li>
         <li>
+          <!-- Only frontend (not working) -->
           <div
             class="flex items-center border border-solid border-white rounded-full h-7"
           >
