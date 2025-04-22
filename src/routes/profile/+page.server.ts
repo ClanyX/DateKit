@@ -1,3 +1,5 @@
+import { Sex } from '@prisma/client';
+import type { RequestEvent } from './$types';
 import type { PageServerLoad, Actions } from './$types';
 
 export const load: PageServerLoad = async ({ locals }: { locals: App.Locals }) => {
@@ -6,14 +8,22 @@ export const load: PageServerLoad = async ({ locals }: { locals: App.Locals }) =
     }
 };
 
-export const actions: Actions = {
-    //only catching the data from the form and logging it to the console
-    update: async ({ request }) => {
-        const data = await request.formData();
-        const name = data.get('name') as string;
-        const age = data.get('age') as string;
-        const gender = data.get('gender') as string;
+const updateProfile = async ({ request, locals }: RequestEvent) => {
+    const data = await request.formData();
+    const name = data.get('name') as string;
+    const age = data.get('age') as string;
+    const gender = data.get('gender') as string;
 
-        console.log(name, age, gender);
-    }
+    await prisma.user.update({
+        where: {
+            name: locals.user.name
+        },
+        data: {
+            name,
+            age: parseInt(age),
+            sex: Sex[gender as keyof typeof Sex]
+        }
+    });
 };
+
+export const actions = { updateProfile };
