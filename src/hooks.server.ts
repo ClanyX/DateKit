@@ -8,7 +8,7 @@ export const handle: Handle = async ({ event, resolve }) => {
     }
     const user = await prisma.user.findUnique({
         where: { userToken: session },
-        select: { name: true, age: true, sex: true, points: true }
+        select: { name: true, age: true, sex: true, points: true, createdAt: true }
     });
 
     if(user){
@@ -16,7 +16,8 @@ export const handle: Handle = async ({ event, resolve }) => {
             name: user.name,
             age: user.age,
             sex: user.sex,
-            points: user.points
+            points: user.points,
+            createdAt: user.createdAt,
         };
     }
 
