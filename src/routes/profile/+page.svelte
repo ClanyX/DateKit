@@ -82,6 +82,7 @@
                     Points:
                     <span class="font-bold">{data.user.points}</span>
                 </p>
+
                 <button
                     class="bg-indigo-500 hover:bg-indigo-600 rounded p-0.5"
                     aria-label="edit"
