@@ -122,8 +122,8 @@
             >
               <svg
                 data-initial="icon-theme-sync"
-                width="12px"
-                height="12px"
+                width="13px"
+                height="13px"
                 xmlns="http://www.w3.org/2000/svg"
                 viewBox="0 0 24 24"
                 stroke-linejoin="round"
@@ -158,8 +158,8 @@
             >
               <svg
                 data-initial="icon-theme-sync"
-                width="12px"
-                height="12px"
+                width="13px"
+                height="13px"
                 xmlns="http://www.w3.org/2000/svg"
                 viewBox="0 0 24 24"
                 stroke-linejoin="round"
