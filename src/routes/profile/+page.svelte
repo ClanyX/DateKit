@@ -9,7 +9,10 @@
             points: number;
             createdAt: Date;
         };
-        error: string;
+    };
+
+    export let form: {
+        error?: string;
     };
 
     let isProfile = true;
@@ -26,14 +29,15 @@
                 <div class="text-lg font-montserrat font-bold">
                     <button
                         on:click={() => (isProfile = true)}
-                        class="text-2xl font-bold">User Profile</button
-                    >
+                        class="text-2xl font-bold cursor-pointer {isProfile ? 'underline' : ''}">User Profile
+                    </button>
                 </div>
+                <span>|</span>
                 <div class="text-lg font-montserrat font-bold">
                     <button
                         on:click={() => (isProfile = false)}
-                        class="text-2xl font-bold">Password</button
-                    >
+                        class="text-2xl font-bold cursor-pointer {!isProfile ? 'underline' : ''}">Password
+                    </button>
                 </div>
             </div>
         </div>
@@ -180,13 +184,11 @@
                         </div>
                     </div>
 
-                    <!-- NO showing error -->
-                    {#if data?.error}
+                    {#if form?.error}
                         <p class="text-red-500 text-sm mb-3">
-                            {data.error}
+                            {form.error}
                         </p>
                     {/if}
-                    <pre>{JSON.stringify(data, null, 2)}</pre>
 
                     <button
                         class="bg-indigo-500 hover:bg-indigo-600 rounded p-0.5"

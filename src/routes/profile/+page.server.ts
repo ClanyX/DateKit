@@ -4,7 +4,7 @@ import { fail } from '@sveltejs/kit';
 import bcrypt from 'bcrypt';
 
 export const load: PageServerLoad = async ({ locals }: { locals: App.Locals }) => {
-    if(locals.user){
+    if (locals.user) {
         return { user: locals.user };
     }
 };
@@ -27,18 +27,17 @@ const updateProfile = async ({ request, locals }: RequestEvent) => {
     });
 };
 
-/* Dont showing errors */
 const passwordChange = async ({ request, locals }: RequestEvent) => {
     const data = await request.formData();
     const oldPassword = data.get('oldPassword') as string || null;
     const newPassword = data.get('newPassword') as string || null;
     const newPassword1 = data.get('newPassword1') as string || null;
 
-    if(!oldPassword || !newPassword || !newPassword1){
+    if (!oldPassword || !newPassword || !newPassword1) {
         return fail(400, { error: 'All fields are required' });
     }
 
-    if(newPassword !== newPassword1){
+    if (newPassword !== newPassword1) {
         return fail(400, { error: 'Passwords do not match' });
     }
 
@@ -51,23 +50,19 @@ const passwordChange = async ({ request, locals }: RequestEvent) => {
         }
     });
 
-    if(!userPass || !bcrypt.compareSync(oldPassword, userPass.password)){
+    if (!userPass || !bcrypt.compareSync(oldPassword, userPass.password)) {
         return fail(400, { error: 'Old password is incorrect' });
     }
 
-    try{
-        await prisma.user.update({
-            where: {
-                name: locals.user.name
-            },
-            data: {
-                password: bcrypt.hashSync(newPassword, 10)
-            }
-        })
-        return { success: true };
-    } catch (error) {
-        return fail(500, { error: 'Internal server error' });
-    }
+    await prisma.user.update({
+        where: {
+            name: locals.user.name
+        },
+        data: {
+            password: bcrypt.hashSync(newPassword, 10)
+        }
+    });
+    location.reload();
 };
 
 export const actions = { updateProfile, passwordChange };
