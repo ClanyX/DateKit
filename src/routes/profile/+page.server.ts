@@ -3,7 +3,12 @@ import type { RequestEvent, PageServerLoad } from './$types';
 import { fail } from '@sveltejs/kit';
 import bcrypt from 'bcrypt';
 
-export const load: PageServerLoad = async ({ locals }: { locals: App.Locals }) => {
+export const load: PageServerLoad = async ({ locals, cookies }) => {
+    const userCookie = cookies.get('user');
+    if(userCookie){
+        cookies.delete('user', { path: '/' });
+        return { user: JSON.parse(userCookie), local: false };
+    }
     if (locals.user) {
         return { user: locals.user, local: true };
     }

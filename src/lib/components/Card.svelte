@@ -34,6 +34,15 @@
 
     isUserLoad = true;
   }
+
+  async function showProfile(){
+    await fetch("/api/profile", {
+      method: "POST",
+      body: JSON.stringify({ user }),
+      headers: { "Content-Type": "application/json" },
+    });
+    window.location.href = '/profile';
+  }
 </script>
 
 {#if isUserLoad}
@@ -146,6 +155,12 @@
             onclick={swapUser}
           >
             Swap
+          </button>
+          <button
+            class="uppercase font-semibold text-xs px-2 whitespace-nowrap py-1 rounded-full bg-white text-gray-800 mt-1"
+            onclick={showProfile}
+          >
+            Profile
           </button>
         </div>
       {/if}
