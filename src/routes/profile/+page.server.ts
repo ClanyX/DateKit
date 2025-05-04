@@ -5,7 +5,7 @@ import bcrypt from 'bcrypt';
 
 export const load: PageServerLoad = async ({ locals }: { locals: App.Locals }) => {
     if (locals.user) {
-        return { user: locals.user };
+        return { user: locals.user, local: true };
     }
 };
 
